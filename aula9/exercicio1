@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+# --- 1. Verificação de Privilégios ---
+if [ "$EUID" -ne 0 ]; then
+    echo "Erro: Este script precisa ser executado como root (use sudo)."
+    exit 1
+fi
+
+echo "---------------------------------------------------"
+echo "   REMOVER USUÁRIOS POR PREFIXO                   "
+echo "---------------------------------------------------"
+
+# --- 2. Coleta de Dados ---
+read -p "Digite o prefixo dos usuarios: " PREFIXO
+read -p "Digite o numero final: " LIMITE
+
+if [ -z "$PREFIXO" ]; then
+    echo "Erro: Prefixo vazio."
+    exit 1
+fi
+
+if [ -z "$LIMITE" ]; then
+    echo "Erro: Numero invalido."
+    exit 1
+fi
+
+# --- 3. Remocao ---
+for ((i=1; i<=LIMITE; i++))
+do
+    USUARIO="$PREFIXO$i"
+
+    id "$USUARIO" &> /dev/null
+
+    if [ $? -eq 0 ]; then
+        deluser --remove-home "$USUARIO"
+        echo "Usuario $USUARIO removido."
+    else
+        echo "Usuario $USUARIO nao existe."
+    fi
+done
