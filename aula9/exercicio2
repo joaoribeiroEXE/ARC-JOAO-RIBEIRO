@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "---------------------------------------------------"
+echo "   CRIACAO DAS SEMANAS                            "
+echo "---------------------------------------------------"
+
+for ((i=1; i<=20; i++))
+do
+    mkdir "Semana$i"
+    echo "Semana$i criada."
+done
