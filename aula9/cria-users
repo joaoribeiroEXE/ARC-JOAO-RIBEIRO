@@ -21,7 +21,7 @@ fi
 id "$NOVO_USUARIO" &> /dev/null
 
 if [ $? -eq 0 ]; then
-    echo "Alerta: O usuário '$NOVO_USUARIO' já existe no sistema!"
+    echo "Esse usuario ja existe!"
     exit 1
 fi
 
