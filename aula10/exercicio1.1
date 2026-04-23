@@ -1,0 +1,44 @@
+#!/bin/bash
+
+ARQUIVO="rh_lista.csv"
+SETOR_ALVO="TI"
+GRUPO_SECUNDARIO="projetos_ti"
+
+# Verificações iniciais
+if [ ! -f "$ARQUIVO" ]; then
+    echo "[ERRO] Arquivo $ARQUIVO não encontrado!"
+    exit 1
+fi
+
+if [ "$EUID" -ne 0 ]; then
+    echo "[ERRO] Execute como root (sudo)."
+    exit 1
+fi
+
+# Criar grupo se não existir
+if ! getent group "$GRUPO_SECUNDARIO" > /dev/null; then
+    echo "[INFO] Criando grupo $GRUPO_SECUNDARIO..."
+    groupadd "$GRUPO_SECUNDARIO"
+fi
+
+echo "--- Provisionando usuários do setor: $SETOR_ALVO ---"
+
+grep ";$SETOR_ALVO;" "$ARQUIVO" | cut -d ";" -f 1 | while read LOGIN; do
+
+    if id "$LOGIN" &> /dev/null; then
+        echo "[PULANDO] $LOGIN já existe."
+    else
+        useradd -m -s /bin/bash "$LOGIN"
+
+        echo "$LOGIN:Mudar@123" | chpasswd
+        chage -d 0 "$LOGIN"
+
+        # Adiciona ao grupo secundário
+        usermod -aG "$GRUPO_SECUNDARIO" "$LOGIN"
+
+        echo "[OK] $LOGIN criado e adicionado ao grupo $GRUPO_SECUNDARIO."
+    fi
+
+done
+
+echo "--- Finalizado ---"
