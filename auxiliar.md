@@ -227,10 +227,3 @@ ping IP_DA_OUTRA_VM
 
 
 O TCPDump captura todos os pacotes que passam pela rede ou apenas os que eu selecionar através de filtros. É muito utilizado para diagnóstico, análise de protocolos e investigação de problemas.
-
----
-
-DIFERENÇA ENTRE AS FERRAMENTAS
-
-IPTraf-NG
-→ Monitora o tr
