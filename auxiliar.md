@@ -26,7 +26,6 @@ Opções mais importantes
 
 IP Traffic Monitor
 
-«Mostra todas as conexões IP em tempo real.»
 
 General Interface Statistics
 
@@ -34,11 +33,10 @@ General Interface Statistics
 
 Detailed Interface Statistics
 
-«Estatísticas detalhadas de pacotes enviados e recebidos.»
+
 
 LAN Station Monitor
 
-«Mostra os computadores conectados na rede local.»
 
 Como demonstrar
 
@@ -48,9 +46,8 @@ Como demonstrar
 4. Fazer um ping de outra máquina.
 5. Mostrar o tráfego aparecendo.
 
-Como explicar ao professor
 
-"Essa ferramenta serve para monitorar o tráfego da rede em tempo real. Ela mostra conexões, pacotes e estatísticas da interface. É muito utilizada para descobrir quem está utilizando a rede e identificar problemas rapidamente."
+Essa ferramenta serve para monitorar o tráfego da rede em tempo real. Ela mostra conexões, pacotes e estatísticas da interface. É muito utilizada para descobrir quem está utilizando a rede e identificar problemas rapidamente.
 
 ---
 
@@ -98,8 +95,6 @@ Teste de 30 segundos
 
 iperf3 -c IP_DO_SERVIDOR -t 30
 
-Como demonstrar
-
 1. Abrir uma VM como servidor.
 2. Executar:
 
@@ -111,9 +106,8 @@ iperf3 -c IP_DO_SERVIDOR
 
 4. Mostrar o resultado da velocidade.
 
-Como explicar ao professor
 
-"O Iperf3 mede a largura de banda entre dois computadores. Uma máquina funciona como servidor e a outra como cliente. No final ele informa a velocidade da rede em Mbps ou Gbps."
+O Iperf3 mede a largura de banda entre dois computadores. Uma máquina funciona como servidor e a outra como cliente. No final ele informa a velocidade da rede em Mbps ou Gbps.
 
 ---
 
@@ -165,7 +159,7 @@ http://IP_DA_VM:3000
 
 Como demonstrar
 
-Mostrar:
+conferir:
 
 - Dashboard.
 - Hosts conectados.
@@ -173,9 +167,8 @@ Mostrar:
 - Consumo de banda.
 - Gráficos.
 
-Como explicar ao professor
 
-"O NtopNG faz praticamente a mesma função do IPTraf, porém possui interface gráfica. Ele gera gráficos, identifica os dispositivos conectados, mostra quais protocolos estão sendo utilizados e fornece relatórios completos da rede."
+O NtopNG faz praticamente a mesma função do IPTraf, porém possui interface gráfica. Ele gera gráficos, identifica os dispositivos conectados, mostra quais protocolos estão sendo utilizados e fornece relatórios completos da rede
 
 ---
 
@@ -229,11 +222,11 @@ sudo tcpdump icmp
 
 ping IP_DA_OUTRA_VM
 
-3. Mostrar os pacotes aparecendo.
+3. Mostra os pacotes
 
-Como explicar ao professor
 
-"O TCPDump captura todos os pacotes que passam pela rede ou apenas os que eu selecionar através de filtros. É muito utilizado para diagnóstico, análise de protocolos e investigação de problemas."
+
+O TCPDump captura todos os pacotes que passam pela rede ou apenas os que eu selecionar através de filtros. É muito utilizado para diagnóstico, análise de protocolos e investigação de problemas.
 
 ---
 
